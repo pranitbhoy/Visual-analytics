@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+  <script src="https://kit.fontawesome.com/cbb6042c90.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> login </title>
+    <link rel="shortcut icon" href="{% static 'photos/favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/fastag.css' %}">
+</head>
+<body>
+<form  action="/log/"  method="post">
+    {% csrf_token %}
+    <nav class="navbar2">
+        <ul>
+            <img src="{% static 'photos/logo.jpg' %}" alt="">
+        </ul>
+    </nav>
+    <div class="fake">
+        <img src="{% static 'photos/f1.jpg' %}" alt="">
+
+    </div>
+
+    <div class="box">
+        <div class="log">
+            <a href="/select"><h1>Login/Register</h1></a>
+
+        </div>
+        <div class="recharge">
+            <a href="/recharge"><h1>Quick Recharge</h1></a>
+
+        </div>
+        <div>
+
+            <input type="text" class="user" name="user" placeholder="User id / wallet id /mobile no /vehicle reg no">
+            <input type="password" class="pass" name="pass"  placeholder="password">
+            <input type="text" class="captch" name="ch"  placeholder="CAPTCHA">
+
+            <canvas style="background-image:url('{% static 'photos/cap.jpg'%}');"  class="canva" id="myCanvas"></canvas><br><a href="/refresh">refresh</a>
+            <a href="#"><input type="button" value="Forgot password" class="btn1"></a>
+            <input type="submit" value="Login" class="btn2" >
+
+
+
+        </div>
+
+<script>
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    ctx.font = "50px Comic Sans MS";
+    ctx.fillStyle = "black";
+    ctx.textAlign = "center";
+    ctx.fillText("{{cap}}", canvas.width/2, canvas.height/2);
+</script>
+
+
+
+
+    </div>
+</form>
+</body>
+</html>
